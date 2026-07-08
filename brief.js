@@ -1,6 +1,49 @@
-const GOOGLE_SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwqC59duqa2LZ9h-NVU0dg-ZYpnhOL2sa6u-RZaYFnnInEYvanZPbUtvFU8jM1fJYUrJA/exec';
+const GOOGLE_SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/' + 'AKfycbwqC59duqa2LZ9h-NVU0dg-ZYpnhOL2sa6u-RZaYFnnInEYvanZPbUtvFU8jM1fJYUrJA' + '/exec';
 const form = document.getElementById('websiteBriefForm');
 const thankYou = document.getElementById('thankYou');
+
+function applyMotivationalHeroCopy() {
+  const page = window.location.pathname.split('/').pop() || 'brief.html';
+  const copy = {
+    'brief.html': {
+      eyebrow: 'Premium Website Intake',
+      title: 'Ready to build a website that makes your business look professional?',
+      text: 'Complete this short brief so SACKO CONCEPT can understand your business, your goals and the website style you need before we start.',
+      button: 'Start My Website Brief'
+    },
+    'logo-brief.html': {
+      eyebrow: 'Logo Co-Creation Intake',
+      title: 'Ready to give your brand a logo that feels premium and professional?',
+      text: 'Share your business details, visual direction and brand preferences so we can co-create a logo that fits your identity.',
+      button: 'Start My Logo Brief'
+    },
+    'banner-brief.html': {
+      eyebrow: 'Banner & Profile Upgrade Intake',
+      title: 'Ready to upgrade your online image with a stronger visual presence?',
+      text: 'Tell us about your platform, message and design direction so we can create a banner or profile visual that looks clear, modern and credible.',
+      button: 'Start My Banner Brief'
+    },
+    'content-brief.html': {
+      eyebrow: 'Content Creation Intake',
+      title: 'Ready to show up online with content that looks consistent and professional?',
+      text: 'Choose your content package and share your goals, audience and topics so we can prepare posts that support your brand and offer.',
+      button: 'Start My Content Brief'
+    }
+  }[page];
+
+  if (!copy) return;
+  const hero = document.querySelector('.brief-hero');
+  if (!hero) return;
+  const eyebrow = hero.querySelector('.eyebrow');
+  const title = hero.querySelector('h1');
+  const text = hero.querySelector('.hero-text');
+  const button = hero.querySelector('.primary-link');
+
+  if (eyebrow) eyebrow.textContent = copy.eyebrow;
+  if (title) title.textContent = copy.title;
+  if (text) text.textContent = copy.text;
+  if (button) button.textContent = copy.button;
+}
 
 function relaxOptionalFields() {
   document.querySelectorAll('input[type="url"]').forEach((input) => {
@@ -10,6 +53,7 @@ function relaxOptionalFields() {
   });
 }
 
+applyMotivationalHeroCopy();
 relaxOptionalFields();
 
 const revealObserver = new IntersectionObserver((entries) => {
