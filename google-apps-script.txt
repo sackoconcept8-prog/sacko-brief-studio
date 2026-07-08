@@ -1,65 +1,90 @@
-// Google Sheets receiver for SACKO CONCEPT Website Brief Form
-// 1. Create a Google Sheet.
+// Google Sheets receiver for all SACKO CONCEPT brief forms
+// Works with: Website Brief, Logo Brief, Banner Brief, Content Brief
+//
+// Setup:
+// 1. Create a new Google Sheet.
 // 2. Go to Extensions > Apps Script.
-// 3. Paste this code.
-// 4. Click Deploy > New deployment > Web app.
-// 5. Execute as: Me.
-// 6. Who has access: Anyone.
-// 7. Copy the Web App URL.
-// 8. Paste that URL inside brief.js in GOOGLE_SHEETS_WEB_APP_URL.
+// 3. Delete any default code and paste this full code.
+// 4. Click Save.
+// 5. Click Deploy > New deployment > Web app.
+// 6. Execute as: Me.
+// 7. Who has access: Anyone.
+// 8. Copy the Web App URL ending with /exec.
+// 9. Send that URL to ChatGPT so it can be added to brief.js.
 
 function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  var data = JSON.parse(e.postData.contents);
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var data = JSON.parse(e.postData.contents || '{}');
+  var formType = data.formType || data.sourcePage || 'Website Brief';
+  var sheetName = cleanSheetName(formType);
+  var sheet = ss.getSheetByName(sheetName) || ss.insertSheet(sheetName);
 
-  var headers = [
+  data.receivedAt = new Date();
+
+  var existingHeaders = [];
+  if (sheet.getLastRow() > 0) {
+    existingHeaders = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+  }
+
+  var preferredHeaders = [
+    'receivedAt',
     'submittedAt',
+    'formType',
+    'sourcePage',
     'fullName',
     'email',
     'whatsapp',
     'location',
     'businessName',
     'businessType',
-    'websiteLink',
-    'socialLink',
-    'businessOffer',
     'package',
+    'contentPackage',
+    'deliverableType',
+    'logoType',
     'websiteGoal',
+    'contentGoal',
     'expectedResult',
-    'mainHeadline',
-    'businessDescription',
-    'servicesList',
-    'displayContact',
-    'sections',
-    'style',
-    'colors',
-    'designReferences',
-    'domainStatus',
-    'hostingStatus',
-    'filesLink',
     'deadline',
-    'urgency',
-    'discount',
     'paymentStatus',
-    'finalNotes',
     'projectStatus'
   ];
 
+  var incomingHeaders = Object.keys(data);
+  var headers = mergeUnique(preferredHeaders, existingHeaders, incomingHeaders).filter(function(header) {
+    return incomingHeaders.indexOf(header) !== -1 || existingHeaders.indexOf(header) !== -1 || preferredHeaders.indexOf(header) !== -1;
+  });
+
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(headers);
+  } else if (headers.length > existingHeaders.length || headers.join('|') !== existingHeaders.join('|')) {
+    sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
   }
 
   var row = headers.map(function(header) {
     var value = data[header] || '';
-    if (Array.isArray(value)) {
-      return value.join(' | ');
-    }
+    if (Array.isArray(value)) return value.join(' | ');
     return value;
   });
 
   sheet.appendRow(row);
+  sheet.autoResizeColumns(1, headers.length);
 
   return ContentService
-    .createTextOutput(JSON.stringify({ result: 'success' }))
+    .createTextOutput(JSON.stringify({ result: 'success', sheet: sheetName }))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+function cleanSheetName(name) {
+  return String(name).replace(/[\\\/\?\*\[\]\:]/g, '').substring(0, 90) || 'Briefs';
+}
+
+function mergeUnique() {
+  var result = [];
+  for (var i = 0; i < arguments.length; i++) {
+    var arr = arguments[i] || [];
+    for (var j = 0; j < arr.length; j++) {
+      if (arr[j] && result.indexOf(arr[j]) === -1) result.push(arr[j]);
+    }
+  }
+  return result;
 }
