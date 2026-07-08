@@ -23,6 +23,31 @@ document.querySelectorAll('.package-option input').forEach((input) => {
   });
 });
 
+document.querySelectorAll('.info-dot').forEach((button) => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const wrap = button.closest('.info-wrap');
+    const isOpen = wrap.classList.contains('open');
+    document.querySelectorAll('.info-wrap.open').forEach((item) => item.classList.remove('open'));
+    if (!isOpen) {
+      wrap.classList.add('open');
+    }
+  });
+});
+
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.info-wrap')) {
+    document.querySelectorAll('.info-wrap.open').forEach((item) => item.classList.remove('open'));
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    document.querySelectorAll('.info-wrap.open').forEach((item) => item.classList.remove('open'));
+  }
+});
+
 function getFormObject() {
   const data = new FormData(form);
   const obj = {};
