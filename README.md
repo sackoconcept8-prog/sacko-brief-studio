@@ -1,41 +1,47 @@
-# SACKO Brief Studio
+# SACKO Work Studio
 
-Premium client brief and project intake web app for **SACKO CONCEPT**, a creative digital studio offering branding, profile upgrades, banners, mini websites, digital product pages and premium business visuals.
+Premium internal client and project management workspace for **SACKO CONCEPT**.
 
-## What it includes
+This is not only a form. It is a private-style business dashboard where SACKO CONCEPT can track clients, services, deliverables, deadlines, payments, notes and weekly priorities.
 
-- Premium dark luxury interface
-- Client brief form in English
-- Service package selection
-- Brand direction section
-- Project details section
-- File upload UI
-- Final confirmation checkboxes
-- Local brief saving in the browser
-- JSON export for admin use
-- Mobile and desktop responsive layout
+## Purpose
 
-## Services included
+Use this workspace to answer questions like:
 
-- Impact Starter
-- Profil d’Impact
-- Impact Business
-- Digital Product Page
-- Mini Website
-- Banner / Profile Upgrade
-- Logo / Brand Visual
-- Custom Request
+- Which clients do I have this week?
+- What service did each client order?
+- What do I need to deliver to each client?
+- Which projects are new, in progress, waiting for the client or completed?
+- Which payments are still pending?
+- Which deadlines are urgent?
+- What is my next action for each project?
 
-## GitHub Pages
+## Main features
 
-To publish this project:
+- Dashboard with weekly stats
+- Client and project table
+- Project status system: New, In Progress, Waiting for Client, Completed
+- Payment tracking: Pending, Deposit Paid, Paid
+- Deliverables checklist per client
+- Client notes and next action field
+- Kanban-style pipeline
+- Weekly summary
+- Priority tasks section
+- Jotform client brief link button
+- Local browser storage
+- Responsive mobile and desktop layout
 
-1. Open the repository settings.
-2. Go to **Pages**.
-3. Choose **Deploy from a branch**.
-4. Select branch **main** and folder **/root**.
-5. Save.
+## How to use it
+
+1. Send your Jotform link to the client so they can submit their brief.
+2. Review the client brief.
+3. Add the client manually inside SACKO Work Studio.
+4. Add the service, price, deadline, deliverables and next action.
+5. Update the project status as the work progresses.
+6. Check the dashboard every day to see what must be done.
 
 ## Important
 
-This is a front-end static web app. Form data is saved locally in the browser for demo/admin use. To receive submissions by email or store uploaded files online, connect the form later to EmailJS, Formspree, Airtable, Firebase, Supabase or a custom backend.
+This version stores data inside the browser using localStorage. It is useful as a simple internal tool and demo workspace.
+
+For a real multi-device business tool with login, database and cloud file storage, connect it later to Supabase, Firebase, Airtable, Notion, Google Sheets or a custom backend.
