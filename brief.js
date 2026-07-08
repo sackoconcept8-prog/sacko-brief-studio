@@ -2,8 +2,36 @@ const GOOGLE_SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/' + 'AKfyc
 const form = document.getElementById('websiteBriefForm');
 const thankYou = document.getElementById('thankYou');
 
+const FORM_LABELS = {
+  'brief.html': 'Website Brief',
+  'logo-brief.html': 'Logo Co-Creation Brief',
+  'banner-brief.html': 'Banner and Profile Upgrade Brief',
+  'content-brief.html': 'Content Creation Brief'
+};
+
+function getCurrentPage() {
+  return window.location.pathname.split('/').pop() || 'brief.html';
+}
+
+function cleanClientNavigation() {
+  document.querySelectorAll('a[href="index.html"]').forEach((link) => {
+    if (link.classList.contains('admin-link') || link.closest('.topbar-actions')) {
+      link.remove();
+    }
+  });
+
+  if (thankYou) {
+    const backLink = thankYou.querySelector('.admin-link');
+    if (backLink) backLink.remove();
+    const thankText = thankYou.querySelector('p');
+    if (thankText) {
+      thankText.textContent = 'SACKO CONCEPT has received your brief. You may now close this page. We will contact you shortly by email or WhatsApp.';
+    }
+  }
+}
+
 function applyMotivationalHeroCopy() {
-  const page = window.location.pathname.split('/').pop() || 'brief.html';
+  const page = getCurrentPage();
   const copy = {
     'brief.html': {
       eyebrow: 'Premium Website Intake',
@@ -53,6 +81,7 @@ function relaxOptionalFields() {
   });
 }
 
+cleanClientNavigation();
 applyMotivationalHeroCopy();
 relaxOptionalFields();
 
@@ -106,8 +135,10 @@ function getFormObject() {
     }
   }
 
+  const page = getCurrentPage();
+  if (!obj.formType) obj.formType = FORM_LABELS[page] || page;
   obj.submittedAt = new Date().toISOString();
-  obj.sourcePage = window.location.pathname.split('/').pop() || 'brief.html';
+  obj.sourcePage = page;
   obj.projectStatus = 'New brief received';
   return obj;
 }
@@ -126,7 +157,6 @@ async function sendToGoogleSheets(obj) {
     await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(obj)
     });
     return { ok: true };
