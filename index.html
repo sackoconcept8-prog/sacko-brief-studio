@@ -3,216 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SACKO Work Studio — Client & Project Dashboard</title>
-  <meta name="description" content="Internal client and project management workspace for SACKO CONCEPT." />
+  <title>SACKO CONCEPT — Forms & Client Systems Hub</title>
+  <meta name="description" content="Organized SACKO CONCEPT hub for client forms, project briefs and intake system links." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="app-shell">
-    <aside class="sidebar">
-      <div class="brand-block brand-logo-block">
-        <img class="brand-logo-img" src="assets/sacko-logo.svg" alt="SACKO CONCEPT" />
-      </div>
-
-      <nav class="nav-menu" aria-label="Main navigation">
-        <a href="#dashboard" class="active">Dashboard</a>
-        <a href="#projects">Clients & Projects</a>
-        <a href="#pipeline">Project Pipeline</a>
-        <a href="#week">This Week</a>
-        <a href="#settings">Settings</a>
-      </nav>
-
-      <div class="help-card">
-        <span>Client intake link</span>
-        <strong>Send your premium brief form to new clients</strong>
-        <a href="brief.html" target="_blank" rel="noopener">Open Website Brief Form</a>
-      </div>
-    </aside>
-
-    <main class="main-content">
-      <section id="dashboard" class="hero">
+  <main class="hub-shell">
+    <header class="hub-hero">
+      <div class="brand-row">
+        <img src="assets/sacko-logo.svg" alt="SACKO CONCEPT logo" />
         <div>
-          <p class="eyebrow">Internal Business Workspace</p>
-          <h1>SACKO Work Studio</h1>
-          <p class="hero-copy">Track every client, service, task, deliverable, payment, deadline and next action from one premium dashboard.</p>
+          <strong>SACKO CONCEPT</strong>
+          <span>Forms & Client Systems Hub</span>
         </div>
-        <div class="hero-actions">
-          <button class="primary-btn" id="openProjectModal">+ Add Client Project</button>
-          <a class="ghost-link" href="brief.html" target="_blank" rel="noopener">Open Brief Form</a>
-        </div>
-      </section>
-
-      <section class="stats-grid" aria-label="Studio overview">
-        <article class="stat-card"><span>This Week Clients</span><strong id="weekClients">0</strong><small>New clients added this week</small></article>
-        <article class="stat-card"><span>Active Projects</span><strong id="activeProjects">0</strong><small>Projects not completed yet</small></article>
-        <article class="stat-card"><span>Pending Payments</span><strong id="pendingPayments">0</strong><small>Payments still waiting</small></article>
-        <article class="stat-card danger"><span>Urgent Deadlines</span><strong id="urgentDeadlines">0</strong><small>Due in the next 7 days</small></article>
-      </section>
-
-      <section id="projects" class="workspace-grid">
-        <div class="panel large-panel">
-          <div class="panel-header">
-            <div>
-              <p class="eyebrow">Client Management</p>
-              <h2>Clients & Projects</h2>
-            </div>
-            <div class="toolbar">
-              <input id="searchInput" type="search" placeholder="Search client, service or task..." />
-              <select id="statusFilter">
-                <option value="All">All statuses</option>
-                <option value="New">New</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Waiting for Client">Waiting for Client</option>
-                <option value="Completed">Completed</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Client</th>
-                  <th>Service</th>
-                  <th>Status</th>
-                  <th>Deadline</th>
-                  <th>Price</th>
-                  <th>Payment</th>
-                  <th>Progress</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="projectTable"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <aside class="panel detail-panel" id="clientDetail">
-          <p class="eyebrow">Selected Client</p>
-          <h2>No client selected</h2>
-          <p class="muted">Choose a client in the table to see the work to deliver, notes and next action.</p>
-        </aside>
-      </section>
-
-      <section id="pipeline" class="panel">
-        <div class="panel-header">
-          <div>
-            <p class="eyebrow">Project Status System</p>
-            <h2>Pipeline</h2>
-          </div>
-          <button class="small-btn" id="resetDemo">Reset Demo Data</button>
-        </div>
-        <div class="kanban" id="kanban"></div>
-      </section>
-
-      <section id="week" class="workspace-grid">
-        <div class="panel">
-          <div class="panel-header">
-            <div>
-              <p class="eyebrow">Weekly Planning</p>
-              <h2>This Week</h2>
-            </div>
-          </div>
-          <div id="weekSummary" class="week-summary"></div>
-        </div>
-
-        <div class="panel">
-          <div class="panel-header">
-            <div>
-              <p class="eyebrow">Next Actions</p>
-              <h2>Priority Tasks</h2>
-            </div>
-          </div>
-          <div id="priorityTasks" class="task-list"></div>
-        </div>
-      </section>
-
-      <section id="settings" class="panel settings-panel">
-        <div class="panel-header">
-          <div>
-            <p class="eyebrow">Studio Setup</p>
-            <h2>Settings</h2>
-          </div>
-        </div>
-        <div class="settings-grid">
-          <label>Studio Name<input id="studioName" type="text" value="SACKO CONCEPT" /></label>
-          <label>WhatsApp Contact<input id="studioWhatsapp" type="text" placeholder="https://wa.me/221000000000" /></label>
-          <label>Client Brief Form Link<input id="jotformLink" type="url" value="brief.html" /></label>
-          <label>Payment Link<input id="paymentLink" type="url" placeholder="Paste your payment link here" /></label>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <dialog id="projectModal" class="modal">
-    <form id="projectForm" method="dialog">
-      <div class="modal-header">
-        <div>
-          <p class="eyebrow">New Client Project</p>
-          <h2>Add a client to your workspace</h2>
-        </div>
-        <button type="button" class="icon-btn" id="closeProjectModal">×</button>
       </div>
+      <p class="eyebrow">Organized workspace</p>
+      <h1>All your client forms in one clean place.</h1>
+      <p class="hero-copy">Use this page to access the right form, send links to clients, and keep your service workflow simple. Client responses are collected inside your connected Google Sheet.</p>
+    </header>
 
-      <div class="form-grid">
-        <label>Client Name<input name="clientName" required placeholder="Example: Awa Diop" /></label>
-        <label>Business Name<input name="businessName" placeholder="Example: Awa Beauty Studio" /></label>
-        <label>Email<input type="email" name="email" placeholder="client@email.com" /></label>
-        <label>WhatsApp<input name="whatsapp" placeholder="+221..." /></label>
-        <label>Service
-          <select name="service" required>
-            <option value="Impact Starter">Impact Starter</option>
-            <option value="Profil d’Impact">Profil d’Impact</option>
-            <option value="Impact Business">Impact Business</option>
-            <option value="Digital Product Page">Digital Product Page</option>
-            <option value="Mini Website">Mini Website</option>
-            <option value="Banner / Profile Upgrade">Banner / Profile Upgrade</option>
-            <option value="Logo / Brand Visual">Logo / Brand Visual</option>
-            <option value="Custom Request">Custom Request</option>
-          </select>
-        </label>
-        <label>Status
-          <select name="status">
-            <option>New</option>
-            <option>In Progress</option>
-            <option>Waiting for Client</option>
-            <option>Completed</option>
-          </select>
-        </label>
-        <label>Price<input name="price" placeholder="$45" /></label>
-        <label>Payment Status
-          <select name="paymentStatus">
-            <option>Pending</option>
-            <option>Deposit Paid</option>
-            <option>Paid</option>
-          </select>
-        </label>
-        <label>Deadline<input type="date" name="deadline" /></label>
-        <label>Source<input name="source" placeholder="Facebook Ad, WhatsApp, Instagram..." /></label>
+    <section class="quick-grid" aria-label="Main form links">
+      <a class="link-card featured" href="intake-system-brief.html" target="_blank" rel="noopener">
+        <span>New Service</span>
+        <h2>Client Intake System Brief</h2>
+        <p>For businesses that want a branded form connected to Google Sheets / Excel-style tracking.</p>
+        <b>Open system brief →</b>
+      </a>
+
+      <a class="link-card" href="brief.html" target="_blank" rel="noopener">
+        <span>Website</span>
+        <h2>Website Project Brief</h2>
+        <p>For clients who want a professional website or landing page.</p>
+        <b>Open website brief →</b>
+      </a>
+
+      <a class="link-card" href="logo-brief.html" target="_blank" rel="noopener">
+        <span>Logo</span>
+        <h2>Logo Co-Creation Brief</h2>
+        <p>For clients who need a logo direction, brand identity or visual mark.</p>
+        <b>Open logo brief →</b>
+      </a>
+
+      <a class="link-card" href="banner-brief.html" target="_blank" rel="noopener">
+        <span>Banner</span>
+        <h2>Banner & Profile Upgrade</h2>
+        <p>For profile banners, Facebook covers, LinkedIn headers and online image upgrades.</p>
+        <b>Open banner brief →</b>
+      </a>
+
+      <a class="link-card" href="content-brief.html" target="_blank" rel="noopener">
+        <span>Content</span>
+        <h2>Content Creation Brief</h2>
+        <p>For 10, 15 or 30 post packages and brand content planning.</p>
+        <b>Open content brief →</b>
+      </a>
+
+      <a class="link-card muted-card" href="submissions.html" target="_blank" rel="noopener">
+        <span>Local backup</span>
+        <h2>Local Submissions Viewer</h2>
+        <p>Only shows submissions saved in this browser. Your main source remains Google Sheets.</p>
+        <b>Open local viewer →</b>
+      </a>
+    </section>
+
+    <section class="info-panel">
+      <div>
+        <p class="eyebrow">How to use</p>
+        <h2>Simple workflow</h2>
       </div>
-
-      <label>Deliverables / Things to provide to this client
-        <textarea name="deliverables" placeholder="Write one deliverable per line. Example:&#10;Professional banner&#10;Profile bio&#10;3 ready-to-post contents&#10;Mini website page"></textarea>
-      </label>
-
-      <label>Notes
-        <textarea name="notes" placeholder="Client preferences, colors, style, links, important details..."></textarea>
-      </label>
-
-      <label>Next Action
-        <input name="nextAction" placeholder="Example: Create first banner concept" />
-      </label>
-
-      <div class="modal-actions">
-        <button type="submit" class="primary-btn">Save Client Project</button>
-        <button type="button" class="ghost-btn" id="cancelProject">Cancel</button>
+      <div class="steps-grid">
+        <article><b>01</b><span>Choose the correct form for the client.</span></article>
+        <article><b>02</b><span>Send the form link by WhatsApp, email or social media.</span></article>
+        <article><b>03</b><span>The client submits the brief.</span></article>
+        <article><b>04</b><span>You check the answers inside Google Sheets.</span></article>
       </div>
-    </form>
-  </dialog>
+    </section>
 
-  <script src="script.js"></script>
+    <section class="info-panel compact">
+      <div>
+        <p class="eyebrow">Important</p>
+        <h2>Google Sheets is the official place for client answers.</h2>
+        <p class="hero-copy">The local viewer is only a browser backup. For real client work, always check your Google Sheet: <strong>SACKO CONCEPT — Client Briefs</strong>.</p>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
