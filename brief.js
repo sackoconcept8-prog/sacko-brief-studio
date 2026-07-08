@@ -6,11 +6,45 @@ const FORM_LABELS = {
   'brief.html': 'Website Brief',
   'logo-brief.html': 'Logo Co-Creation Brief',
   'banner-brief.html': 'Banner and Profile Upgrade Brief',
-  'content-brief.html': 'Content Creation Brief'
+  'content-brief.html': 'Content Creation Brief',
+  'intake-system-brief.html': 'Client Intake System Brief'
 };
 
 function getCurrentPage() {
   return window.location.pathname.split('/').pop() || 'brief.html';
+}
+
+function applyBrandLogo() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .brand-link {
+      min-width: 250px !important;
+      padding: 8px 14px !important;
+      background: linear-gradient(135deg, rgba(0,0,0,.92), rgba(20,17,13,.82)) !important;
+      border-color: rgba(215,168,77,.24) !important;
+      box-shadow: 0 16px 45px rgba(0,0,0,.32) !important;
+    }
+    .brand-link:before {
+      content: "" !important;
+      width: 50px !important;
+      height: 50px !important;
+      border-radius: 16px !important;
+      border: 1px solid rgba(245,210,130,.38) !important;
+      background: #030303 url("assets/sacko-logo.svg") center/120% no-repeat !important;
+      box-shadow: 0 0 28px rgba(215,168,77,.2) !important;
+    }
+    .brand-link:after {
+      content: "SACKO CONCEPT\A SYSTEM STUDIO" !important;
+      white-space: pre !important;
+      line-height: 1.05 !important;
+      color: #f5d282 !important;
+      font-size: 11px !important;
+      font-weight: 900 !important;
+      letter-spacing: .2em !important;
+    }
+    @media(max-width:760px){.brand-link{min-width:unset !important;width:100% !important;}}
+  `;
+  document.head.appendChild(style);
 }
 
 function cleanClientNavigation() {
@@ -81,6 +115,7 @@ function relaxOptionalFields() {
   });
 }
 
+applyBrandLogo();
 cleanClientNavigation();
 applyMotivationalHeroCopy();
 relaxOptionalFields();
