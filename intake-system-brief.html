@@ -41,10 +41,10 @@
         </div>
         <aside class="hero-panel"><span class="panel-label">Business workflow</span><strong>System</strong><p>Professional form + Google Sheets / Excel-style tracking + ready-to-share link.</p><div class="mini-meter"><span></span></div></aside>
       </div>
-      <div class="package-strip"><span>Business form</span><span>Google Sheets tracking</span><span>No form-platform subscription</span></div>
+      <div class="package-strip"><span>Business form</span><span>Google Sheets tracking</span><span>Custom URL option</span></div>
     </header>
 
-    <section class="trust-row reveal"><article><b>01</b><span>Business details</span></article><article><b>02</b><span>Brand assets</span></article><article><b>03</b><span>Questions needed</span></article><article><b>04</b><span>System setup</span></article></section>
+    <section class="trust-row reveal"><article><b>01</b><span>Business details</span></article><article><b>02</b><span>Brand assets</span></article><article><b>03</b><span>Questions needed</span></article><article><b>04</b><span>Delivery link</span></article></section>
 
     <form id="websiteBriefForm" class="brief-form">
       <input type="hidden" name="formType" value="Client Intake System Brief" />
@@ -138,14 +138,26 @@
       </section>
 
       <section class="form-card reveal">
-        <div class="section-title"><span>08</span><h2>Deadline & Final Notes</h2></div>
+        <div class="section-title"><span>08</span><h2>Delivery Link & URL Preference</h2></div>
+        <div class="grid two">
+          <label>How would you like your system link to be delivered?<select name="deliveryLinkPreference" required><option value="">Select</option><option>Standard SACKO CONCEPT project link is fine</option><option>I want a custom URL with my business name</option><option>I want it delivered under my own brand only</option><option>Not sure, I need advice</option></select></label>
+          <label>Do you already own a domain name?<select name="domainOwnership" required><option value="">Select</option><option>Yes, I already own a domain</option><option>No, I do not own a domain yet</option><option>I am not sure</option></select></label>
+          <label>Your current domain name<input name="currentDomain" placeholder="Example: yourbusiness.com or write: not available" /></label>
+          <label>Preferred custom URL<input name="preferredCustomUrl" placeholder="Example: forms.yourbusiness.com or booking.yourbusiness.com" /></label>
+        </div>
+        <label>Any note about how you want the link to appear?<textarea name="urlNotes" placeholder="Example: I do not want SACKO CONCEPT to appear in the client-facing link, or I want the link to use my business name."></textarea></label>
+        <div class="file-note"><strong>Delivery note:</strong> a standard project link is included. A custom URL or fully branded delivery may require extra configuration, domain access or an additional setup fee.</div>
+      </section>
+
+      <section class="form-card reveal">
+        <div class="section-title"><span>09</span><h2>Deadline & Final Notes</h2></div>
         <div class="grid two">
           <label>Desired deadline<input type="date" name="deadline" required /></label>
           <label>Payment status<select name="paymentStatus" required><option value="">Select</option><option>I have not paid yet</option><option>I want the payment link</option><option>I already paid</option><option>I need invoice/payment details</option></select></label>
         </div>
         <label>Anything else we should know?<textarea name="finalNotes" placeholder="Add any extra detail, special request, workflow or business requirement."></textarea></label>
         <label class="confirm"><input type="checkbox" required name="confirmReview" /> I understand that SACKO CONCEPT will review my brief before confirming the setup.</label>
-        <label class="confirm"><input type="checkbox" required name="confirmOwnership" /> I understand that setup may require Google Sheets access or a Web App URL depending on the ownership option selected.</label>
+        <label class="confirm"><input type="checkbox" required name="confirmOwnership" /> I understand that setup may require Google Sheets access, domain access or a delivery link configuration depending on the options selected.</label>
         <button type="submit" class="submit-btn"><span>Submit My System Brief</span></button>
         <p class="secure-note">Your brief will be sent to SACKO CONCEPT for review.</p>
       </section>
