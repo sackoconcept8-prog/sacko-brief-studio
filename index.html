@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SACKO CONCEPT — Client Brief Form</title>
+  <meta name="description" content="Premium client brief form for SACKO CONCEPT creative digital studio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-block">
+        <div class="brand-mark">SC</div>
+        <div>
+          <strong>SACKO CONCEPT</strong>
+          <span>Brief Studio</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu" aria-label="Main navigation">
+        <a href="#brief" class="active">Create Brief</a>
+        <a href="#services">Services</a>
+        <a href="#uploads">Uploads</a>
+        <a href="#confirmation">Confirmation</a>
+      </nav>
+
+      <div class="help-card">
+        <span>Need help?</span>
+        <strong>Chat with us on WhatsApp</strong>
+        <a href="https://wa.me/221000000000" target="_blank" rel="noopener">Contact Studio</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Premium Client Intake Portal</p>
+          <h1>SACKO CONCEPT — Client Brief Form</h1>
+          <p class="hero-copy">This form helps clients submit their project information, brand details, files and expectations before starting a project.</p>
+        </div>
+        <div class="hero-badge">
+          <span>Secure Brief Flow</span>
+          <strong>24–48h Review</strong>
+        </div>
+      </header>
+
+      <section class="status-grid" aria-label="Studio overview">
+        <article><span>New Brief</span><strong>01</strong></article>
+        <article><span>Project Status</span><strong>New</strong></article>
+        <article><span>Studio Response</span><strong>Email / WhatsApp</strong></article>
+        <article><span>Design Style</span><strong>Premium</strong></article>
+      </section>
+
+      <form id="briefForm" class="brief-form">
+        <section id="brief" class="form-card">
+          <div class="section-heading">
+            <span>01</span>
+            <div>
+              <h2>Client Information</h2>
+              <p>Tell us who you are and how we can contact you.</p>
+            </div>
+          </div>
+
+          <div class="grid two">
+            <label>Full Name<input type="text" name="fullName" placeholder="Enter your full name" required /></label>
+            <label>Email Address<input type="email" name="email" placeholder="Enter your email address" required /></label>
+            <label>WhatsApp Number<input type="tel" name="whatsapp" placeholder="Enter your WhatsApp number" required /></label>
+            <label>Country / City<input type="text" name="location" placeholder="Example: Dakar, Senegal" /></label>
+          </div>
+        </section>
+
+        <section class="form-card">
+          <div class="section-heading">
+            <span>02</span>
+            <div>
+              <h2>Business Information</h2>
+              <p>Help us understand your business and online presence.</p>
+            </div>
+          </div>
+
+          <div class="grid two">
+            <label>Business Name<input type="text" name="businessName" placeholder="Enter your business name" /></label>
+            <label>Business Type<input type="text" name="businessType" placeholder="Example: Coaching, Beauty, Real Estate" /></label>
+            <label>Website Link<input type="url" name="website" placeholder="https://yourwebsite.com" /></label>
+            <label>Instagram / Facebook / LinkedIn Link<input type="url" name="socialLink" placeholder="https://instagram.com/yourprofile" /></label>
+          </div>
+          <label>What does your business sell or offer?<textarea name="businessOffer" placeholder="Describe your products, services or offer in detail..."></textarea></label>
+        </section>
+
+        <section id="services" class="form-card">
+          <div class="section-heading">
+            <span>03</span>
+            <div>
+              <h2>Service Needed</h2>
+              <p>Select the offer that best matches your project.</p>
+            </div>
+          </div>
+
+          <div class="choice-grid">
+            <label><input type="radio" name="service" value="Impact Starter" required /><span>Impact Starter</span></label>
+            <label><input type="radio" name="service" value="Profil d’Impact" /><span>Profil d’Impact</span></label>
+            <label><input type="radio" name="service" value="Impact Business" /><span>Impact Business</span></label>
+            <label><input type="radio" name="service" value="Digital Product Page" /><span>Digital Product Page</span></label>
+            <label><input type="radio" name="service" value="Mini Website" /><span>Mini Website</span></label>
+            <label><input type="radio" name="service" value="Banner / Profile Upgrade" /><span>Banner / Profile Upgrade</span></label>
+            <label><input type="radio" name="service" value="Logo / Brand Visual" /><span>Logo / Brand Visual</span></label>
+            <label><input type="radio" name="service" value="Custom Request" /><span>Custom Request</span></label>
+          </div>
+        </section>
+
+        <section class="form-card">
+          <div class="section-heading">
+            <span>04</span>
+            <div>
+              <h2>Brand Direction</h2>
+              <p>Define the visual direction and emotion of your brand.</p>
+            </div>
+          </div>
+
+          <label>What style do you want?</label>
+          <div class="pill-grid" data-name="brandStyle">
+            <button type="button">Luxury</button><button type="button">Minimal</button><button type="button">Modern</button><button type="button">Corporate</button><button type="button">Elegant</button><button type="button">Bold</button><button type="button">Feminine</button><button type="button">Masculine</button><button type="button">Creative</button><button type="button">Clean</button><button type="button">Other</button>
+          </div>
+          <input type="hidden" name="brandStyle" />
+
+          <div class="grid two">
+            <label>Preferred Colors<input type="text" name="colors" placeholder="Example: Black, gold, beige, red" /></label>
+            <label>Brands or designs you like<input type="text" name="references" placeholder="Share links or examples you admire" /></label>
+          </div>
+
+          <label>What feeling should your brand give?</label>
+          <div class="pill-grid" data-name="brandFeeling">
+            <button type="button">Trust</button><button type="button">Luxury</button><button type="button">Professional</button><button type="button">Premium</button><button type="button">Modern</button><button type="button">Friendly</button><button type="button">Powerful</button><button type="button">Elegant</button>
+          </div>
+          <input type="hidden" name="brandFeeling" />
+        </section>
+
+        <section class="form-card">
+          <div class="section-heading">
+            <span>05</span>
+            <div>
+              <h2>Project Details</h2>
+              <p>Explain the goal, deadline and expected result.</p>
+            </div>
+          </div>
+
+          <label>Describe your project<textarea name="projectDescription" placeholder="Tell us about your project in detail..." required></textarea></label>
+          <div class="grid two">
+            <label>What problem do you want this project to solve?<textarea name="problem" placeholder="Describe the problem your project should solve..."></textarea></label>
+            <label>What result do you expect?<textarea name="expectedResult" placeholder="Describe the final result you want..."></textarea></label>
+            <label>Deadline<input type="date" name="deadline" /></label>
+            <label>Budget Range<select name="budget"><option value="">Select budget range</option><option>$15 – $45</option><option>$45 – $95</option><option>$95 – $250</option><option>$250+</option></select></label>
+          </div>
+        </section>
+
+        <section id="uploads" class="form-card">
+          <div class="section-heading">
+            <span>06</span>
+            <div>
+              <h2>File Uploads</h2>
+              <p>Add your current visuals, photo and brand references.</p>
+            </div>
+          </div>
+
+          <div class="upload-grid">
+            <label class="upload-box">Upload your current logo<input type="file" name="logo" accept="image/*,.pdf" /><span>PNG, JPG, SVG, PDF</span></label>
+            <label class="upload-box">Upload your profile photo<input type="file" name="profilePhoto" accept="image/*" /><span>PNG or JPG</span></label>
+            <label class="upload-box">Upload brand references<input type="file" name="brandReferences" multiple /><span>Images, PDF or docs</span></label>
+            <label class="upload-box">Upload any additional files<input type="file" name="additionalFiles" multiple /><span>Optional files</span></label>
+          </div>
+        </section>
+
+        <section id="confirmation" class="form-card final-card">
+          <div class="section-heading">
+            <span>07</span>
+            <div>
+              <h2>Final Confirmation</h2>
+              <p>Please confirm before sending your brief.</p>
+            </div>
+          </div>
+
+          <label class="checkbox"><input type="checkbox" name="reviewConsent" required /> I understand that SACKO CONCEPT will review my brief before confirming the project.</label>
+          <label class="checkbox"><input type="checkbox" name="accurateInfo" required /> I confirm that the information provided is accurate.</label>
+
+          <div class="action-row">
+            <button type="submit" class="submit-btn">Send My Brief</button>
+            <button type="button" id="exportBtn" class="ghost-btn">Export JSON</button>
+          </div>
+          <p class="secure-note">Your information is secure and confidential.</p>
+        </section>
+      </form>
+
+      <section id="thankYou" class="thank-you hidden" aria-live="polite">
+        <div class="checkmark">✓</div>
+        <h2>Thank you for submitting your brief.</h2>
+        <p>SACKO CONCEPT will review your project details and contact you shortly by email or WhatsApp.</p>
+        <button id="newBriefBtn">Create Another Brief</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
