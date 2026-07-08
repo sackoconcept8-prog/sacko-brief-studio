@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SACKO CONCEPT — Website Project Brief</title>
+  <meta name="description" content="Website project brief form for SACKO CONCEPT web design packages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="brief.css" />
+</head>
+<body>
+  <div class="background-logo" aria-hidden="true">SC</div>
+  <main class="brief-page">
+    <header class="brief-hero">
+      <div class="logo-line">
+        <div class="logo-mark">SC</div>
+        <div>
+          <strong>SACKO CONCEPT</strong>
+          <span>Website Project Brief</span>
+        </div>
+      </div>
+      <p class="eyebrow">Premium Website Intake</p>
+      <h1>Tell us about your website project.</h1>
+      <p class="hero-text">Complete this short form so SACKO CONCEPT can understand your business, choose the right package, prepare your website structure and contact you with the next steps.</p>
+      <div class="package-strip">
+        <span>Starter Express — $49</span>
+        <span>Premium Design — $89</span>
+        <span>Pro Code + Hosting — $149</span>
+      </div>
+    </header>
+
+    <form id="websiteBriefForm" class="brief-form">
+      <section class="form-card">
+        <div class="section-title"><span>01</span><h2>Client Information</h2></div>
+        <div class="grid two">
+          <label>Full Name<input name="fullName" required placeholder="Enter your full name" /></label>
+          <label>Email Address<input type="email" name="email" required placeholder="Enter your email address" /></label>
+          <label>WhatsApp Number<input name="whatsapp" required placeholder="Enter your WhatsApp number" /></label>
+          <label>Country / City<input name="location" required placeholder="Example: Dakar, Senegal" /></label>
+        </div>
+      </section>
+
+      <section class="form-card">
+        <div class="section-title"><span>02</span><h2>Business Information</h2></div>
+        <div class="grid two">
+          <label>Business or Brand Name<input name="businessName" required placeholder="Your business name" /></label>
+          <label>Business Type<input name="businessType" required placeholder="Coaching, beauty, real estate, consulting..." /></label>
+          <label>Current Website Link<input type="url" name="websiteLink" placeholder="https://yourwebsite.com" /></label>
+          <label>Social Media Link<input type="url" name="socialLink" placeholder="Instagram, Facebook or LinkedIn link" /></label>
+        </div>
+        <label>What does your business sell or offer?<textarea name="businessOffer" required placeholder="Describe your services, products, offer and target audience."></textarea></label>
+      </section>
+
+      <section class="form-card highlight-card">
+        <div class="section-title"><span>03</span><h2>Choose Your Website Package</h2></div>
+        <div class="package-grid">
+          <label class="package-option">
+            <input type="radio" name="package" required value="Starter Express Website — $49" />
+            <strong>Starter Express Website</strong>
+            <b>$49</b>
+            <span>24h to 72h · Homepage · 3 to 5 essential sections · WhatsApp/email CTA</span>
+          </label>
+          <label class="package-option recommended">
+            <input type="radio" name="package" value="Premium Design Website — $89" />
+            <em>Recommended</em>
+            <strong>Premium Design Website</strong>
+            <b>$89</b>
+            <span>3 to 5 days · Desktop + mobile design · 5 to 7 sections · FAQ + CTA</span>
+          </label>
+          <label class="package-option">
+            <input type="radio" name="package" value="Pro Code + Hosting Website — $149" />
+            <strong>Pro Code + Hosting Website</strong>
+            <b>$149</b>
+            <span>5 to 7 days · Code files · GitHub · domain support · contact form · SEO</span>
+          </label>
+          <label class="package-option">
+            <input type="radio" name="package" value="Not sure — recommend the best package" />
+            <strong>I’m not sure</strong>
+            <b>Recommend</b>
+            <span>SACKO CONCEPT will review your brief and recommend the best option.</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="form-card">
+        <div class="section-title"><span>04</span><h2>Website Goal</h2></div>
+        <label>Main goal of your website
+          <select name="websiteGoal" required>
+            <option value="">Select one goal</option>
+            <option>Present my business professionally</option>
+            <option>Get more clients</option>
+            <option>Sell a service</option>
+            <option>Promote a product</option>
+            <option>Build trust and credibility</option>
+            <option>Receive WhatsApp / email requests</option>
+            <option>Launch quickly</option>
+            <option>Create a premium brand image</option>
+          </select>
+        </label>
+        <label>What result do you expect from this website?<textarea name="expectedResult" required placeholder="Example: I want people to understand my services, trust my business and contact me on WhatsApp."></textarea></label>
+      </section>
+
+      <section class="form-card">
+        <div class="section-title"><span>05</span><h2>Website Content</h2></div>
+        <label>Main headline or message<input name="mainHeadline" placeholder="Example: Premium websites for serious entrepreneurs" /></label>
+        <label>Short business description<textarea name="businessDescription" required placeholder="Write the short description that can be used on your website."></textarea></label>
+        <label>List your services or products<textarea name="servicesList" required placeholder="Write one service or product per line."></textarea></label>
+        <label>Contact information to display on the website<textarea name="displayContact" required placeholder="WhatsApp, email, address, booking link or payment link."></textarea></label>
+      </section>
+
+      <section class="form-card">
+        <div class="section-title"><span>06</span><h2>Sections Needed</h2></div>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="sections" value="Hero section" /> Hero section</label>
+          <label><input type="checkbox" name="sections" value="About section" /> About section</label>
+          <label><input type="checkbox" name="sections" value="Services section" /> Services section</label>
+          <label><input type="checkbox" name="sections" value="Pricing section" /> Pricing section</label>
+          <label><input type="checkbox" name="sections" value="Portfolio / gallery" /> Portfolio / gallery</label>
+          <label><input type="checkbox" name="sections" value="Testimonials" /> Testimonials</label>
+          <label><input type="checkbox" name="sections" value="FAQ" /> FAQ</label>
+          <label><input type="checkbox" name="sections" value="Contact section" /> Contact section</label>
+          <label><input type="checkbox" name="sections" value="WhatsApp button" /> WhatsApp button</label>
+          <label><input type="checkbox" name="sections" value="Payment button" /> Payment button</label>
+          <label><input type="checkbox" name="sections" value="Booking link" /> Booking link</label>
+          <label><input type="checkbox" name="sections" value="Other" /> Other</label>
+        </div>
+      </section>
+
+      <section class="form-card">
+        <div class="section-title"><span>07</span><h2>Design Direction</h2></div>
+        <div class="grid two">
+          <label>Preferred style
+            <select name="style" required>
+              <option value="">Select a style</option>
+              <option>Luxury</option>
+              <option>Minimal</option>
+              <option>Modern</option>
+              <option>Corporate</option>
+              <option>Elegant</option>
+              <option>Bold</option>
+              <option>Clean</option>
+              <option>Premium</option>
+              <option>Creative</option>
+              <option>Simple</option>
+            </select>
+          </label>
+          <label>Preferred colors<input name="colors" placeholder="Example: black, gold, beige, red" /></label>
+        </div>
+        <label>Websites or designs you like<textarea name="designReferences" placeholder="Paste links or describe the style you like."></textarea></label>
+      </section>
+
+      <section class="form-card">
+        <div class="section-title"><span>08</span><h2>Domain, Hosting & Files</h2></div>
+        <div class="grid two">
+          <label>Do you already have a domain?
+            <select name="domainStatus" required>
+              <option value="">Select</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>I need help with this</option>
+              <option>Not sure</option>
+            </select>
+          </label>
+          <label>Do you already have hosting?
+            <select name="hostingStatus" required>
+              <option value="">Select</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>I need help with this</option>
+              <option>Not sure</option>
+            </select>
+          </label>
+        </div>
+        <div class="file-note">
+          <strong>Files:</strong> after submitting this brief, you can send your logo, images, screenshots and references by WhatsApp or email. If you already have a folder link, paste it below.
+        </div>
+        <label>Files / folder link<input name="filesLink" placeholder="Google Drive, Dropbox, Canva, image links..." /></label>
+      </section>
+
+      <section class="form-card">
+        <div class="section-title"><span>09</span><h2>Deadline, Discount & Payment</h2></div>
+        <div class="grid two">
+          <label>Desired deadline<input type="date" name="deadline" required /></label>
+          <label>Urgency
+            <select name="urgency" required>
+              <option value="">Select urgency</option>
+              <option>Very urgent</option>
+              <option>This week</option>
+              <option>Within 2 weeks</option>
+              <option>Flexible</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+          <label>Do you want the 48-hour discount?
+            <select name="discount" required>
+              <option value="">Select</option>
+              <option>Yes, I want to confirm within 48 hours</option>
+              <option>No, I will confirm later</option>
+              <option>I need more information first</option>
+            </select>
+          </label>
+          <label>Payment status
+            <select name="paymentStatus" required>
+              <option value="">Select</option>
+              <option>I have not paid yet</option>
+              <option>I want the payment link</option>
+              <option>I already paid</option>
+              <option>I need invoice/payment details</option>
+            </select>
+          </label>
+        </div>
+        <p class="discount-note">48h discount: $49 → $39.20 · $89 → $71.20 · $149 → $119.20</p>
+      </section>
+
+      <section class="form-card">
+        <div class="section-title"><span>10</span><h2>Final Notes</h2></div>
+        <label>Anything else we should know?<textarea name="finalNotes" placeholder="Add any special request, detail or question."></textarea></label>
+        <label class="confirm"><input type="checkbox" required name="confirmReview" /> I understand that SACKO CONCEPT will review my brief before confirming the project.</label>
+        <label class="confirm"><input type="checkbox" required name="confirmCosts" /> I understand that domain, hosting, subscriptions or advanced features may require additional costs.</label>
+        <button type="submit" class="submit-btn">Submit My Website Brief</button>
+        <p class="secure-note">Your brief will be saved and prepared for SACKO CONCEPT review.</p>
+      </section>
+    </form>
+
+    <section id="thankYou" class="thank-you hidden">
+      <div class="checkmark">✓</div>
+      <h2>Thank you for submitting your website project brief.</h2>
+      <p>SACKO CONCEPT will review your project details and contact you shortly by email or WhatsApp with the next steps.</p>
+      <a href="index.html" class="admin-link">Back to Work Studio</a>
+    </section>
+  </main>
+  <script src="brief.js"></script>
+</body>
+</html>
