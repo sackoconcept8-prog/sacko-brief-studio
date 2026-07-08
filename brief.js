@@ -1,4 +1,4 @@
-const GOOGLE_SHEETS_WEB_APP_URL = '';
+const GOOGLE_SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwqC59duqa2LZ9h-NVU0dg-ZYpnhOL2sa6u-RZaYFnnInEYvanZPbUtvFU8jM1fJYUrJA/exec';
 const form = document.getElementById('websiteBriefForm');
 const thankYou = document.getElementById('thankYou');
 
