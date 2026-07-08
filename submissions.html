@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SACKO CONCEPT — Local Submissions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="brief.css" />
+  <style>
+    .submissions-table{overflow:auto;border-radius:18px;border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.28)}
+    table{width:100%;min-width:900px;border-collapse:collapse}th,td{padding:14px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left;vertical-align:top}th{color:#f5d282;font-size:12px;text-transform:uppercase;letter-spacing:.08em}td{color:#d8c4a0;font-size:13px;line-height:1.5}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}.empty{padding:26px;color:#a99f91;text-align:center}.danger-btn{color:#ffd9d5;border:1px solid rgba(184,58,53,.35);background:rgba(184,58,53,.12);padding:13px 18px;border-radius:16px;font-weight:900;cursor:pointer}.small-note{color:#a99f91;line-height:1.6}.sub-card{max-width:none}
+  </style>
+</head>
+<body>
+  <div class="noise-layer" aria-hidden="true"></div>
+  <main class="brief-page">
+    <nav class="topbar reveal visible"><a class="brand-link" href="index.html" aria-label="SACKO CONCEPT Work Studio"></a><div class="topbar-actions"><a href="index.html">Work Studio</a></div></nav>
+    <section class="brief-hero reveal visible">
+      <p class="eyebrow">Local Backup Viewer</p>
+      <h1>Local form submissions.</h1>
+      <p class="hero-text">This page shows submissions saved in this browser only. For real client submissions, connect Google Sheets so every client response arrives in your own spreadsheet.</p>
+      <div class="actions"><button class="primary-link" id="exportJson" type="button">Export JSON</button><button class="ghost-link" id="exportCsv" type="button">Export CSV</button><button class="danger-btn" id="clearLocal" type="button">Clear Local Data</button></div>
+    </section>
+    <section class="form-card sub-card">
+      <h2>Saved submissions on this device</h2>
+      <p class="small-note">Important: if a client fills the form on their own phone, that local copy stays on their phone. You will not see it here unless Google Sheets is connected.</p>
+      <div id="submissionsWrap" class="submissions-table"></div>
+    </section>
+  </main>
+  <script>
+    const STORAGE_KEY='sackoWebsiteBriefs';
+    const wrap=document.getElementById('submissionsWrap');
+    function getData(){return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]')}
+    function render(){const data=getData(); if(!data.length){wrap.innerHTML='<div class="empty">No local submissions found in this browser.</div>'; return;} const headers=[...new Set(data.flatMap(Object.keys))]; wrap.innerHTML='<table><thead><tr>'+headers.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'+data.map(row=>'<tr>'+headers.map(h=>'<td>'+format(row[h])+'</td>').join('')+'</tr>').join('')+'</tbody></table>'}
+    function format(value){if(Array.isArray(value))return value.join('<br>'); return String(value??'').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+    function saveFile(content,type,name){const blob=new Blob([content],{type}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=name; a.click(); URL.revokeObjectURL(url)}
+    document.getElementById('exportJson').onclick=()=>saveFile(JSON.stringify(getData(),null,2),'application/json','sacko-submissions.json');
+    document.getElementById('exportCsv').onclick=()=>{const data=getData(); const headers=[...new Set(data.flatMap(Object.keys))]; const rows=data.map(row=>headers.map(h=>'"'+String(Array.isArray(row[h])?row[h].join(' | '):(row[h]??'')).replace(/"/g,'""')+'"').join(',')); saveFile(headers.join(',')+'\n'+rows.join('\n'),'text/csv','sacko-submissions.csv')};
+    document.getElementById('clearLocal').onclick=()=>{if(confirm('Clear local submissions from this browser?')){localStorage.removeItem(STORAGE_KEY); render();}};
+    render();
+  </script>
+</body>
+</html>
