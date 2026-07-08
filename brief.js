@@ -2,6 +2,16 @@ const GOOGLE_SHEETS_WEB_APP_URL = '';
 const form = document.getElementById('websiteBriefForm');
 const thankYou = document.getElementById('thankYou');
 
+function relaxOptionalFields() {
+  document.querySelectorAll('input[type="url"]').forEach((input) => {
+    input.type = 'text';
+    input.required = false;
+    input.placeholder = input.placeholder || 'Paste a link, username, or write: I do not have one yet';
+  });
+}
+
+relaxOptionalFields();
+
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -30,20 +40,12 @@ document.querySelectorAll('.info-dot').forEach((button) => {
     const wrap = button.closest('.info-wrap');
     const isOpen = wrap.classList.contains('open');
     document.querySelectorAll('.info-wrap.open').forEach((item) => item.classList.remove('open'));
-    if (!isOpen) {
-      wrap.classList.add('open');
-    }
+    if (!isOpen) wrap.classList.add('open');
   });
 });
 
 document.addEventListener('click', (event) => {
   if (!event.target.closest('.info-wrap')) {
-    document.querySelectorAll('.info-wrap.open').forEach((item) => item.classList.remove('open'));
-  }
-});
-
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
     document.querySelectorAll('.info-wrap.open').forEach((item) => item.classList.remove('open'));
   }
 });
@@ -61,6 +63,7 @@ function getFormObject() {
   }
 
   obj.submittedAt = new Date().toISOString();
+  obj.sourcePage = window.location.pathname.split('/').pop() || 'brief.html';
   obj.projectStatus = 'New brief received';
   return obj;
 }
@@ -70,25 +73,6 @@ function saveLocalSubmission(obj) {
   saved.unshift(obj);
   localStorage.setItem('sackoWebsiteBriefs', JSON.stringify(saved));
   localStorage.setItem('latestSackoWebsiteBrief', JSON.stringify(obj));
-}
-
-function downloadCSV(obj) {
-  const headers = Object.keys(obj);
-  const row = headers.map((key) => {
-    const value = Array.isArray(obj[key]) ? obj[key].join(' | ') : String(obj[key] || '');
-    return `"${value.replace(/"/g, '""')}"`;
-  });
-
-  const csv = `${headers.join(',')}\n${row.join(',')}`;
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = `sacko-website-brief-${Date.now()}.csv`;
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  URL.revokeObjectURL(url);
 }
 
 async function sendToGoogleSheets(obj) {
@@ -112,11 +96,6 @@ form.addEventListener('submit', async (event) => {
   const submission = getFormObject();
   saveLocalSubmission(submission);
   await sendToGoogleSheets(submission);
-
-  if (!GOOGLE_SHEETS_WEB_APP_URL) {
-    downloadCSV(submission);
-  }
-
   form.classList.add('hidden');
   thankYou.classList.remove('hidden');
   thankYou.scrollIntoView({ behavior: 'smooth', block: 'center' });
