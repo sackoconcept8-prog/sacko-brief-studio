@@ -1,0 +1,65 @@
+// Google Sheets receiver for SACKO CONCEPT Website Brief Form
+// 1. Create a Google Sheet.
+// 2. Go to Extensions > Apps Script.
+// 3. Paste this code.
+// 4. Click Deploy > New deployment > Web app.
+// 5. Execute as: Me.
+// 6. Who has access: Anyone.
+// 7. Copy the Web App URL.
+// 8. Paste that URL inside brief.js in GOOGLE_SHEETS_WEB_APP_URL.
+
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = JSON.parse(e.postData.contents);
+
+  var headers = [
+    'submittedAt',
+    'fullName',
+    'email',
+    'whatsapp',
+    'location',
+    'businessName',
+    'businessType',
+    'websiteLink',
+    'socialLink',
+    'businessOffer',
+    'package',
+    'websiteGoal',
+    'expectedResult',
+    'mainHeadline',
+    'businessDescription',
+    'servicesList',
+    'displayContact',
+    'sections',
+    'style',
+    'colors',
+    'designReferences',
+    'domainStatus',
+    'hostingStatus',
+    'filesLink',
+    'deadline',
+    'urgency',
+    'discount',
+    'paymentStatus',
+    'finalNotes',
+    'projectStatus'
+  ];
+
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(headers);
+  }
+
+  var row = headers.map(function(header) {
+    var value = data[header] || '';
+    if (Array.isArray(value)) {
+      return value.join(' | ');
+    }
+    return value;
+  });
+
+  sheet.appendRow(row);
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ result: 'success' }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
