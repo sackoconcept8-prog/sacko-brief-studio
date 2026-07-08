@@ -2,6 +2,20 @@ const GOOGLE_SHEETS_WEB_APP_URL = '';
 const form = document.getElementById('websiteBriefForm');
 const thankYou = document.getElementById('thankYou');
 
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach((item, index) => {
+  item.style.transitionDelay = `${Math.min(index * 60, 360)}ms`;
+  revealObserver.observe(item);
+});
+
 document.querySelectorAll('.package-option input').forEach((input) => {
   input.addEventListener('change', () => {
     document.querySelectorAll('.package-option').forEach((card) => card.classList.remove('selected'));
