@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SACKO CONCEPT — Premium branding, websites and digital experiences." />
+  <meta name="theme-color" content="#111111" />
+  <title>SACKO CONCEPT — Premium Creative Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#111;--charcoal:#20201f;--warm:#aaa69f;--paper:#f1eee8;--gold:#c8a96b;--wine:#6e2028;--line:rgba(255,255,255,.2)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#d1cec8;color:var(--ink);font-family:"DM Sans",sans-serif}.serif{font-family:"Instrument Serif",serif;font-weight:400}.shell{width:min(1500px,calc(100% - 32px));margin:16px auto;background:#a9a6a0;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.2)}
+    a{color:inherit}.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:rgba(20,20,20,.96);color:#fff;border-bottom:1px solid var(--line)}.brand{font-weight:700;letter-spacing:.02em;text-decoration:none}.brand span{color:var(--gold)}nav{display:flex;gap:24px}nav a{font-size:13px;text-decoration:none;opacity:.8}.cta{padding:10px 15px;background:var(--paper);color:var(--ink);text-decoration:none;font-size:12px;font-weight:700}
+    .hero{position:relative;min-height:760px;padding:70px 28px 34px;background:linear-gradient(180deg,#171717 0%,#2d2d2c 50%,#a9a6a0 100%);color:white;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.15fr 1fr .55fr;gap:22px;align-items:start}.hero-copy{padding-top:34px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.18em;opacity:.7}.hero h1{margin:18px 0 18px;font-size:clamp(45px,6vw,92px);line-height:.88;max-width:760px}.hero p{max-width:540px;line-height:1.7;color:rgba(255,255,255,.72)}.hero-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 17px;border:1px solid rgba(255,255,255,.28);text-decoration:none;font-size:12px;font-weight:700}.btn.primary{background:var(--paper);color:#111}.portrait{height:460px;background:radial-gradient(circle at 50% 25%,#c8a96b 0 8%,transparent 9%),radial-gradient(circle at 50% 28%,#c8c1b9 0 17%,transparent 18%),linear-gradient(180deg,transparent 0 35%,#232323 36% 100%);position:relative;overflow:hidden}.portrait:after{content:"";position:absolute;left:15%;right:15%;bottom:-8%;height:68%;border-radius:50% 50% 0 0;background:linear-gradient(90deg,#2b3841,#6f7f87);filter:contrast(1.1)}.mini-card{padding:18px;background:#d7d4ce;color:#111;min-height:145px}.mini-card.dark{background:#2b2b2a;color:#fff}.mini-card strong{display:block;font-size:15px;margin-bottom:16px}.mini-card small{font-size:11px;line-height:1.5;opacity:.72}.display-title{position:absolute;left:28px;right:28px;bottom:105px;font-size:clamp(70px,12vw,170px);line-height:.75;white-space:nowrap}.display-title em{color:var(--paper)}.orb{display:inline-grid;place-items:center;width:84px;height:84px;border-radius:50%;font:600 11px/1.1 "DM Sans";text-align:center;color:#111;background:radial-gradient(circle,#f4efc3 0 38%,#d3aa2c 40% 55%,#47797f 57% 68%,transparent 70%);vertical-align:middle;margin:0 10px}
+    .mosaic{padding:28px;background:#a9a6a0}.mosaic-grid{display:grid;grid-template-columns:1.15fr .45fr .65fr;gap:18px}.tile{min-height:260px;background:#f2f0ec;padding:22px;position:relative;overflow:hidden}.tile.dark{background:#252525;color:#fff}.tile.image{background:linear-gradient(135deg,#e8e5df,#aaa69f)}.tile.image:after{content:"";position:absolute;inset:35% 12% -18%;background:linear-gradient(135deg,#111,#70706e);clip-path:polygon(50% 0,100% 100%,0 100%)}.tile h3{margin:0;font-size:24px}.tile .big{font-size:58px;line-height:.9}.tile small{position:absolute;bottom:18px;left:22px;font-size:11px;opacity:.7}.tile .arrow{position:absolute;right:16px;bottom:16px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--gold)}
+    .statement{padding:58px 28px 36px}.statement .label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;background:#8f8b84;color:#fff;display:inline-block;padding:6px 9px}.statement h2{font-size:clamp(55px,7vw,102px);line-height:.93;max-width:1050px;margin:18px 0}.statement-row{display:flex;justify-content:space-between;align-items:flex-start;gap:30px}.statement-row p{max-width:500px;line-height:1.7}
+    .services{padding:0 28px 56px}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.service{background:#eeece6;padding:18px;min-height:390px}.service-art{height:250px;background:linear-gradient(160deg,#efede8,#a39e96);position:relative;overflow:hidden;margin-bottom:18px}.service-art:before{content:"";position:absolute;width:160px;height:160px;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);border:26px solid rgba(17,17,17,.7)}.service:nth-child(2) .service-art:before{border-radius:0;transform:translate(-50%,-50%) rotate(45deg)}.service:nth-child(3) .service-art:before{width:210px;height:90px;border-radius:80% 20% 80% 20%;border-color:var(--wine)}.service h3{font:400 30px "Instrument Serif";margin:0 0 8px}.service p{font-size:13px;line-height:1.6;opacity:.7}
+    .work{background:#181818;color:white;padding:64px 28px}.work-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:30px}.work-head h2{font-size:clamp(54px,7vw,96px);line-height:.9;margin:0}.work-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.project{position:relative;min-height:460px;padding:24px;background:linear-gradient(135deg,#807a72,#dfdcd6);color:#111;overflow:hidden}.project:nth-child(2){background:linear-gradient(135deg,#171717,#745d34);color:#fff}.project:nth-child(3){grid-column:1/-1;min-height:340px;background:linear-gradient(135deg,#e8e4dc,#8d8580)}.project:after{content:"";position:absolute;right:-5%;bottom:-15%;width:62%;height:72%;background:linear-gradient(135deg,rgba(255,255,255,.6),rgba(0,0,0,.55));border-radius:42% 58% 20% 80%}.project h3{position:relative;z-index:2;font:400 clamp(36px,4vw,65px) "Instrument Serif";margin:0}.project p{position:relative;z-index:2;max-width:430px;line-height:1.6}.project a{position:absolute;z-index:3;left:24px;bottom:24px;font-size:12px;font-weight:700}
+    .offers{padding:64px 28px}.offers h2{font-size:clamp(55px,7vw,92px);margin:0 0 30px}.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.offer{background:#ece9e3;padding:26px;min-height:330px;display:flex;flex-direction:column}.offer.featured{background:#242424;color:#fff}.offer .price{font:400 64px "Instrument Serif";margin:18px 0}.offer ul{padding-left:18px;line-height:1.8;font-size:13px;opacity:.75}.offer a{margin-top:auto;text-decoration:none;font-size:12px;font-weight:700;border-top:1px solid rgba(0,0,0,.2);padding-top:16px}.offer.featured a{border-color:rgba(255,255,255,.25)}
+    .contact{background:#0f0f0f;color:white;padding:80px 28px}.contact h2{font-size:clamp(62px,9vw,130px);line-height:.82;margin:0;max-width:1100px}.contact p{max-width:540px;line-height:1.7;color:rgba(255,255,255,.65);margin:30px 0}.footer{display:flex;justify-content:space-between;gap:20px;padding-top:36px;border-top:1px solid rgba(255,255,255,.16);font-size:12px;opacity:.75}
+    .reveal{opacity:0;transform:translateY(24px);transition:.7s ease}.reveal.visible{opacity:1;transform:none}
+    @media(max-width:900px){.shell{width:100%;margin:0}.topbar{padding:16px 18px}nav{display:none}.hero{min-height:auto;padding:45px 18px 130px}.hero-grid,.mosaic-grid,.service-grid,.work-grid,.offer-grid{grid-template-columns:1fr}.hero-grid{gap:14px}.portrait{height:390px}.display-title{bottom:36px;left:18px;font-size:70px;white-space:normal}.orb{width:58px;height:58px}.mosaic,.statement,.services,.work,.offers,.contact{padding-left:18px;padding-right:18px}.statement-row,.work-head,.footer{flex-direction:column}.project:nth-child(3){grid-column:auto}.project{min-height:390px}}
+  </style>
+</head>
+<body>
+  <div class="shell" id="top">
+    <header class="topbar">
+      <a class="brand" href="#top">SACKO CONCEPT<span>.</span></a>
+      <nav><a href="#work">Work</a><a href="#services">Services</a><a href="#offers">Offers</a><a href="#contact">Contact</a></nav>
+      <a class="cta" href="#contact">Start a project ↗</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">Premium creative studio · Worldwide</div>
+          <h1 class="serif">Build an image people trust.</h1>
+          <p>Brand identities, premium websites and digital experiences created for ambitious founders, entrepreneurs and modern businesses.</p>
+          <div class="hero-actions"><a class="btn primary" href="#work">Explore our work ↗</a><a class="btn" href="#services">View services</a></div>
+        </div>
+        <div class="portrait reveal" aria-label="Editorial abstract portrait"></div>
+        <div class="reveal"><div class="mini-card"><strong>Creative direction with business purpose.</strong><small>Every visual system is designed to strengthen credibility, clarity and conversion.</small></div><div class="mini-card dark" style="margin-top:18px"><strong>Fast, focused delivery.</strong><small>Premium execution for brands that are ready to move.</small></div></div>
+      </div>
+      <div class="display-title serif">Design <span class="orb">Build<br>Trust</span> Impact</div>
+    </section>
+
+    <section class="mosaic reveal">
+      <div class="mosaic-grid">
+        <article class="tile"><h3 class="serif big">Ideas made visible.</h3><small>Brand strategy · Visual identity · Digital presence</small><span class="arrow">↗</span></article>
+        <article class="tile dark"><h3>20+</h3><p>Creative concepts and premium business visuals.</p><small>Selected work</small></article>
+        <article class="tile image"><h3 class="serif">Built to be remembered.</h3><small>Editorial art direction</small></article>
+      </div>
+    </section>
+
+    <section class="statement reveal">
+      <span class="label">SACKO CONCEPT philosophy</span>
+      <h2 class="serif">A strong visual identity builds a strong business.</h2>
+      <div class="statement-row"><p>We transform ideas into polished brand experiences that feel clear, credible and premium — from the first impression to the final call to action.</p><a class="btn" style="border-color:#555" href="#contact">Choose excellence ↗</a></div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="service-grid">
+        <article class="service reveal"><div class="service-art"></div><h3>Brand Identity</h3><p>Distinctive logos, typography, color systems and visual direction that create recognition and trust.</p></article>
+        <article class="service reveal"><div class="service-art"></div><h3>Premium Websites</h3><p>Elegant, conversion-focused portfolio and business websites designed for desktop and mobile.</p></article>
+        <article class="service reveal"><div class="service-art"></div><h3>Social Media Systems</h3><p>Professional profiles, banners and content systems that make every platform feel consistent.</p></article>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <div class="work-head reveal"><h2 class="serif">Selected work.</h2><p>Concept projects and digital experiences demonstrating the studio's creative direction.</p></div>
+      <div class="work-grid">
+        <article class="project reveal"><h3>Maison Velora</h3><p>Luxury hospitality identity and editorial social media direction.</p><a href="#contact">View project ↗</a></article>
+        <article class="project reveal"><h3>LaunchVault</h3><p>Premium digital product brand, interface and conversion ecosystem.</p><a href="https://launchvault.sackoconcept.com" target="_blank" rel="noopener">Explore LaunchVault ↗</a></article>
+        <article class="project reveal"><h3>Impact Business</h3><p>A complete professional presence system designed to help small businesses appear credible, consistent and ready to sell.</p><a href="#offers">View the offers ↗</a></article>
+      </div>
+    </section>
+
+    <section class="offers" id="offers">
+      <h2 class="serif reveal">Choose your impact.</h2>
+      <div class="offer-grid">
+        <article class="offer reveal"><h3>Impact Starter</h3><div class="price">$15</div><ul><li>Profile audit</li><li>3 actionable recommendations</li><li>Mini color palette</li><li>Professional bio</li></ul><a href="https://contra.com/7zRjGm7o/p/7zRjGm7o-premium-3-d-textured-floor-plan-24h-fast-track" target="_blank" rel="noopener">Order on Contra ↗</a></article>
+        <article class="offer featured reveal"><h3>Impact Profile</h3><div class="price">$45</div><ul><li>Simple typographic logo</li><li>Professional banner</li><li>3 ready-to-publish posts</li><li>Mini showcase page</li></ul><a href="https://contra.com/KLaJaurW/p/KLaJaurW-elite-3-d-interior-rendering-and-virtual-staging" target="_blank" rel="noopener">Order on Contra ↗</a></article>
+        <article class="offer reveal"><h3>Impact Business</h3><div class="price">$95</div><ul><li>2 professional logo concepts</li><li>5 ready-to-publish posts</li><li>Advanced showcase page</li><li>Simple publishing strategy</li></ul><a href="https://contra.com/A1Vp00p5/p/A1Vp00p5-the-ultimate-property-vision-book-and-full-3-d-render-suite" target="_blank" rel="noopener">Order on Contra ↗</a></article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2 class="serif reveal">Your brand deserves more than ordinary.</h2>
+      <p class="reveal">Tell us what you are building. We will help you create a premium image that attracts trust, clients and opportunities.</p>
+      <div class="hero-actions reveal"><a class="btn primary" href="mailto:sackoconcept8@gmail.com">Start your project ↗</a><a class="btn" href="https://shop.sackoconcept.com" target="_blank" rel="noopener">Visit the shop</a></div>
+      <div class="footer"><span>© 2026 SACKO CONCEPT</span><span>Branding · Websites · Digital Experiences</span></div>
+    </section>
+  </div>
+  <script>
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
